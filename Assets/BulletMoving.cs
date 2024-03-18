@@ -9,7 +9,7 @@ public class BulletMoving : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Destroy(gameObject, 3.6f);
+        Destroy(gameObject, 3.6f);
     }
 
     // Update is called once per frame
@@ -21,14 +21,14 @@ public class BulletMoving : MonoBehaviour
        
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+   /* private void OnTriggerEnter2D(Collider2D collision)
     {   //find and return the first object you see with a gamemanager component in it
         // GameManager gm;
         //  gm = FindAnyObjectByType<GameManager>();
         if (Input.GetKey(KeyCode.Space))
         {
             Instantiate(bulletPrefab, transform.position, transform.rotation);
-        }
+        }*/
       /*  if (collision.CompareTag("BadGuy") == true)
         {   //increment score
             gm.score += 10;
@@ -47,5 +47,5 @@ public class BulletMoving : MonoBehaviour
         //Destroy(gameObject);//destroy the fireball
                             //destroy ketchup
                             //Debug.Log("Ive been triggered!!!!!!!!!"+ collision.name);
-    }
+    
 }

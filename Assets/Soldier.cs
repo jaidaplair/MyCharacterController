@@ -61,6 +61,11 @@ public class Soldier : MonoBehaviour
         {
             animator.SetBool("down", false);//set the down parameter top false
         }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Instantiate(bulletPrefab, transform.position, transform.rotation);
+           // Destroy(gameObject);
+        }
         /*
                 if (Input.GetKey(KeyCode.LeftArrow))
                 {
@@ -76,14 +81,7 @@ public class Soldier : MonoBehaviour
                 }*/
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {   //find and return the first object you see with a gamemanager component in it
-        // GameManager gm;
-        //  gm = FindAnyObjectByType<GameManager>();
-        if (Input.GetKey(KeyCode.Space))
-        {
-            Instantiate(bulletPrefab, transform.position, transform.rotation);
-        }
+   
         /*  if (collision.CompareTag("BadGuy") == true)
           {   //increment score
               gm.score += 10;
@@ -98,9 +96,9 @@ public class Soldier : MonoBehaviour
 
 
 
-        Destroy(collision.gameObject);//destroy object we hit
-        Destroy(gameObject);//destroy the fireball
+        //Destroy(collision.gameObject);//destroy object we hit
+       // Destroy(gameObject);//destroy the fireball
                             //destroy ketchup
                             //Debug.Log("Ive been triggered!!!!!!!!!"+ collision.name);
-    }
+    
 }
