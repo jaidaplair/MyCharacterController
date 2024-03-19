@@ -6,23 +6,21 @@ public class Soldier : MonoBehaviour
 {
     [SerializeField] float speed = 5f;
     [SerializeField] GameObject bulletPrefab;
-    // Start is called before the first frame update
+    [SerializeField] float bulletSpeed = 4f;
 
-    Animator animator;//create a reference to an animator type
+    Animator animator;
     SpriteRenderer spriteRenderer;
+    // Update is called once per frame
+
     void Start()
     {
         //reference to our animator component
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();//get a reference to our spriteRenderer
-    }
 
-    // Update is called once per frame
+    }
     void Update()
     {
-        // animator.SetBool("right", Input.GetKey(KeyCode.RightArrow));
-       
-
         if (Input.GetKey(KeyCode.RightArrow))
         {
             animator.SetBool("right", true);//set the right parametor to true
@@ -61,27 +59,20 @@ public class Soldier : MonoBehaviour
         {
             animator.SetBool("down", false);//set the down parameter top false
         }
-        if (Input.GetKey(KeyCode.Space))
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(bulletPrefab, transform.position, transform.rotation);
-           // Destroy(gameObject);
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+
+            // Set bullet's velocity based on player's facing direction
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            if (transform.localScale.x > 0)
+                rb.velocity = Vector2.right * bulletSpeed;
+            else
+                rb.velocity = Vector2.left * bulletSpeed;
         }
-        /*
-                if (Input.GetKey(KeyCode.LeftArrow))
-                {
-                    animator.SetBool("right", true);//set the right parametor to true
-                    spriteRenderer.flipX = true;
-                }
-                else
-                {
-                    animator.SetBool("right", false);//set the right parameter top false
-                    spriteRenderer.flipX = false;
-
-
-                }*/
     }
-
-   
+}  
         /*  if (collision.CompareTag("BadGuy") == true)
           {   //increment score
               gm.score += 10;
@@ -101,4 +92,4 @@ public class Soldier : MonoBehaviour
                             //destroy ketchup
                             //Debug.Log("Ive been triggered!!!!!!!!!"+ collision.name);
     
-}
+

@@ -6,19 +6,24 @@ public class BulletMoving : MonoBehaviour
 {
     [SerializeField] float speed = 4f;
     [SerializeField] GameObject bulletPrefab;
+    private Vector2 direction;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 3.6f);
+        Destroy(gameObject, 2f);
     }
 
     // Update is called once per frame
     void Update()
     {
-          
-      transform.Translate(Time.deltaTime * speed * Vector3.right);
 
-       
+        //transform.Translate(Time.deltaTime * speed * Vector3.right);
+        transform.Translate(direction * Time.deltaTime * speed );
+
+    }
+    private void  SetDirection(Vector2 direction)
+    {
+        direction = direction.normalized;
     }
 
    /* private void OnTriggerEnter2D(Collider2D collision)
