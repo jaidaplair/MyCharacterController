@@ -59,7 +59,6 @@ public class Soldier : MonoBehaviour
         {
             animator.SetBool("down", false);//set the down parameter top false
         }
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
@@ -70,26 +69,20 @@ public class Soldier : MonoBehaviour
                 rb.velocity = Vector2.right * bulletSpeed;
             else
                 rb.velocity = Vector2.left * bulletSpeed;
+
+            if (transform.localScale.y > 0)
+                rb.velocity = Vector2.up * bulletSpeed;
+            else
+                rb.velocity = Vector2.down * bulletSpeed;
         }
+
+
     }
-}  
-        /*  if (collision.CompareTag("BadGuy") == true)
-          {   //increment score
-              gm.score += 10;
+   
 
-          }
-          if (collision.CompareTag("GoodGuy") == true)
-          {   //decrement score
-              gm.score -= 15;
 
-          }*/
-        //Instantiate(bulletPrefab, transform.position, transform.rotation);
+}
 
 
 
-        //Destroy(collision.gameObject);//destroy object we hit
-       // Destroy(gameObject);//destroy the fireball
-                            //destroy ketchup
-                            //Debug.Log("Ive been triggered!!!!!!!!!"+ collision.name);
-    
 

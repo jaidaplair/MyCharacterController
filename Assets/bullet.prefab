@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4870129437485234565}
   - component: {fileID: 6745393689883775050}
   - component: {fileID: -907799881386187751}
-  - component: {fileID: 5175581252751913636}
+  - component: {fileID: -8266858802952610039}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   bulletPrefab: {fileID: 0}
---- !u!50 &5175581252751913636
+--- !u!50 &-8266858802952610039
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
