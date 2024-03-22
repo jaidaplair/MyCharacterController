@@ -34,7 +34,7 @@ public class BulletMoving : MonoBehaviour
         //     Destroy(gameObject);
         // }
 
-            //transform.Translate(Time.deltaTime * speed * transform.position);
+            transform.Translate(Time.deltaTime * speed* Vector3.right);
             //transform.Translate(direction * Time.deltaTime * speed );
 
     }
