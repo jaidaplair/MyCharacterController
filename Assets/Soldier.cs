@@ -85,13 +85,18 @@ public class Soldier : MonoBehaviour
            // GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
             if (left == true)
             {
-                GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+               // GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+                float newY = transform.position.y + 0.20f;
+                float newX = transform.position.x - 0.9f;
+                GameObject bullet = Instantiate(bulletPrefab, new Vector3(newX, newY, transform.position.z), transform.rotation);
                 bullet.transform.Rotate(0f, 0f, 180f);
+
                 //transform.Translate(Time.deltaTime * speed * Vector3.left);
             }
             if (up == true)
             {
-                GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+                float newY = transform.position.y + 0.90f;
+                GameObject bullet = Instantiate(bulletPrefab, new Vector3(transform.position.x,newY, transform.position.z), transform.rotation);
                 bullet.transform.Rotate(0f, 0f, 90f);
                // transform.Translate(Time.deltaTime * speed * Vector3.up);
             }
@@ -103,8 +108,16 @@ public class Soldier : MonoBehaviour
             }
             if (right == true)
             {
-                GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-               // transform.Translate(Time.deltaTime * speed * Vector3.right);
+                float newY = transform.position.y + 0.20f;
+                float newX = transform.position.x + 0.9f;
+                GameObject bullet = Instantiate(bulletPrefab, new Vector3(newX, newY, transform.position.z), transform.rotation);
+               // GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+                
+
+                //Fire();
+
+                //Instantiate(fireballPrefab, new Vector3(newX, newY, transform.position.z), transform.rotation);
+                // transform.Translate(Time.deltaTime * speed * Vector3.right);
             }
         }
         //instantiate the bullet
